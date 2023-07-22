@@ -1,0 +1,23 @@
+- name: set swarm node to drain availability
+  ansible.builtin.command: docker node update --availability drain {{ inventory_hostname }}
+
+- name: stop docker daemon
+  ansible.builtin.systemd:
+    state: stopped
+    name: docker
+
+- name: stop docker.socket daemon
+  ansible.builtin.systemd:
+    state: stopped
+    name: docker.socket
+
+- name: install dnf updates
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+
+- name: reboot
+  ansible.builtin.reboot:
+
+- name: set swarm node to active availability
+  ansible.builtin.command: docker node update --availability active {{ inventory_hostname }}

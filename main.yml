@@ -1,0 +1,19 @@
+- hosts: swarm
+  become: true
+  roles:
+    - swarm
+
+- hosts: allocator
+  become: true
+  roles:
+    - allocator
+
+- hosts: control
+  become: true
+  roles:
+    - control
+
+- hosts: proxy
+  become: true
+  roles:
+    - proxy

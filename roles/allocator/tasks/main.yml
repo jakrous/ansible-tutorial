@@ -1,0 +1,6 @@
+---
+# tasks file for allocator
+
+- name: allocator debug
+  ansible.builtin.debug:
+    msg: Hello world from the allocator {{ inventory_hostname }}

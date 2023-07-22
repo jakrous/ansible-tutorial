@@ -1,0 +1,6 @@
+---
+# tasks file for control
+
+- name: control debug
+  ansible.builtin.debug:
+    msg: Hello world from the control {{ inventory_hostname }}
