@@ -3,13 +3,15 @@
 
 - name: stop docker daemon
   ansible.builtin.systemd:
-    state: stopped
     name: docker
+    state: stopped
+    enabled: true
 
 - name: stop docker.socket daemon
   ansible.builtin.systemd:
-    state: stopped
     name: docker.socket
+    state: stopped
+    enabled: true
 
 - name: install dnf updates
   ansible.builtin.dnf:
